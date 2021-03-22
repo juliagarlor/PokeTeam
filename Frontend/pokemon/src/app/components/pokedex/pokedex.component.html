@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="index">
+        <div class="entry" *ngFor = "let entry of entryList">
+           <img src={{entry.sprite}}> 
+           <p>{{entry.name}}</p>
+        </div>
+    </div>
+    <div class="page">
+        <img src={{showingPokemon.artwork}}>
+        <h1>{{showingPokemon.pokedexId}} {{showingPokemon.name}}</h1>
+        <p>Weight: {{showingPokemon.weight}} Height: {{showingPokemon.height}}</p>
+        <p>Type:</p>
+        <p *ngFor = "let type of showingPokemon.types">{{type}}</p>
+        titulo descripcion
+        descripcion
+    </div>
+</div>
