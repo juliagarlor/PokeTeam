@@ -18,8 +18,10 @@ PRIMARY KEY (id),
 FOREIGN KEY (trainer_id) REFERENCES trainer(id)
 );
 
-CREATE TABLE team_mates(
+CREATE TABLE pokemon(
+id BIGINT NOT NULL AUTO_INCREMENT,
+pokedex_id BIGINT,
 team_id BIGINT,
-team_mates BIGINT,
+PRIMARY KEY(id),
 FOREIGN KEY (team_id) REFERENCES team(id)
 );

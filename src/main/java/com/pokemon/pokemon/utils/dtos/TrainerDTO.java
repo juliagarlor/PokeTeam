@@ -1,36 +1,37 @@
-package com.pokemon.pokemon.model;
+package com.pokemon.pokemon.utils.dtos;
 
-import com.pokemon.pokemon.utils.dtos.*;
+import com.pokemon.pokemon.model.*;
+import org.hibernate.validator.constraints.*;
 
-import javax.persistence.*;
+import javax.validation.constraints.*;
+import javax.validation.constraints.NotEmpty;
 
-@Entity
-public class Trainer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TrainerDTO {
     private Long id;
+    @NotEmpty(message = "Please, choose a name")
+    @Length(min = 2, max = 20, message = "Please, choose a name with a length between 2 and 20 characters")
     private String name;
+    @Min(10)
     private int age;
     private String hobby;
+    @NotEmpty(message = "Please, choose your favourite photo")
     private String photo;
 
 //    Constructors
 
-    public Trainer() {
-    }
-
-    public Trainer(String name, int age, String hobby, String photo) {
+    public TrainerDTO(String name, int age, String hobby, String photo) {
         this.name = name;
         this.age = age;
         this.hobby = hobby;
         this.photo = photo;
     }
 
-    public Trainer(TrainerDTO trainerDTO) {
-        this(trainerDTO.getName(), trainerDTO.getAge(), trainerDTO.getHobby(), trainerDTO.getPhoto());
+    public TrainerDTO(Trainer trainer) {
+        this(trainer.getName(), trainer.getAge(), trainer.getHobby(), trainer.getPhoto());
+        setId(trainer.getId());
     }
 
-    //    Getters and Setters
+//    Getters and Setters
 
     public Long getId() {
         return id;

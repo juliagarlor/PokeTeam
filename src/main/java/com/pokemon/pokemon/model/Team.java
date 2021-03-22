@@ -14,21 +14,29 @@ public class Team {
     @OneToOne
     @JoinColumn(name = "trainer_id")
     private Trainer trainerId;
-    @ElementCollection
-    @CollectionTable(name = "team_mates")
-    private List<Long> teamMates;
+    @OneToMany(mappedBy = "team")
+    private List<Pokemon> teamMates;
 
 //    Constructors
 
     public Team() {
     }
 
-    public Team(Trainer trainerId, List<Long> teamMates) {
+//    When creating a new team, the list of team mates is empty
+    public Team(Trainer trainerId) {
         this.trainerId = trainerId;
-        this.teamMates = teamMates;
+        this.teamMates = new ArrayList<>();
     }
 
 //    Getters and Setters
+
+    public List<Long> getTeamMatesIds(){
+        List<Long> output = new ArrayList<>();
+        for (Pokemon mate : teamMates){
+            output.add(mate.getId());
+        }
+        return output;
+    }
 
     public Long getId() {
         return id;
@@ -46,11 +54,11 @@ public class Team {
         this.trainerId = trainerId;
     }
 
-    public List<Long> getTeamMates() {
+    public List<Pokemon> getTeamMates() {
         return teamMates;
     }
 
-    public void setTeamMates(List<Long> teamMates) {
+    public void setTeamMates(List<Pokemon> teamMates) {
         this.teamMates = teamMates;
     }
 }
