@@ -1,1 +1,19 @@
-<p>trainers works!</p>
+<div class="container">
+    <div class="page">
+        <img src="{{showingTrainer.photo}}">
+        <h1>{{showingTrainer.name}}</h1>
+        <p>Age: {{showingTrainer.age}}</p>
+        <p>Hobbies: {{showingTrainer.hobby}}</p>
+    </div>
+    <div class="entry">
+        <mat-card *ngFor = "let trainer of trainerList" (click) = "showTrainer(trainer)">
+            <img mat-card-image src="{{trainer.photo}}">
+            <h2>{{trainer.name}}</h2>
+        </mat-card>          
+    </div>
+    <div class="example-button-container">
+        <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click) = "openDialog()">
+            +
+        </button>
+    </div>
+</div>

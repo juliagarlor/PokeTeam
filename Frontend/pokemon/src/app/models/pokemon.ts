@@ -7,7 +7,9 @@ export class Pokemon {
         private _sprite: string,
         private _artwork: string,
         private _height: number,
-        private _weight: number){}
+        private _weight: number,
+        private _description: string
+        ){}
         
     public get pokedexId(): number {
         return this._pokedexId;
@@ -50,5 +52,12 @@ export class Pokemon {
     }
     public set weight(value: number) {
         this._weight = value;
+    }
+
+    public get description(): string {
+        return this._description;
+    }
+    public set description(value: string) {
+        this._description = value;
     }
 }

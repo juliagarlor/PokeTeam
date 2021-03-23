@@ -14,6 +14,10 @@ export class PokedexService {
   getPokemonEntry(id: number): Observable<PokemonEntry>{
     return this.httpClient.get<PokemonEntry>('https://pokeapi.co/api/v2/pokemon/' + id);
   }
+
+  getPokemonDescription(id: number): Observable<PokemonSpecies>{
+    return this.httpClient.get<PokemonSpecies>('https://pokeapi.co/api/v2/pokemon-species/' + id + '/');
+  }
 }
 
 interface PokemonEntry{
@@ -32,4 +36,12 @@ interface PokemonEntry{
     type: {name: string}
   }[]
   weight:	number
+}
+
+interface PokemonSpecies{
+  flavor_text_entries: {
+    '0': {
+      flavor_text: string
+    }
+  }
 }

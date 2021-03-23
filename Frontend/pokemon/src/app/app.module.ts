@@ -9,6 +9,10 @@ import { TrainersComponent } from './components/trainers/trainers.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button'; 
+import {MatCardModule} from '@angular/material/card';
+import { RegisterComponent } from './components/register/register.component'; 
 
 @NgModule({
   declarations: [
@@ -17,12 +21,16 @@ import { HttpClientModule } from '@angular/common/http';
     TeamsComponent,
     TrainersComponent,
     HeaderComponent,
-    HomeComponent
+    HomeComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
