@@ -1,1 +1,45 @@
-<p>register works!</p>
+<div mat-dialog-content>
+  <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="form" #formDirective = "ngForm">
+
+    <mat-form-field class="input">
+        <mat-label>Name</mat-label>
+        <input type="text" matInput formControlName="name" placeholder="Misty">
+        <mat-error *ngIf="name.hasError('required')">
+        Please, enter your name
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="input">
+        <mat-label>Hobbies</mat-label>
+        <input type="text" matInput formControlName="hobbies" placeholder="Catch them all">
+    </mat-form-field>
+
+    <mat-form-field class="input">
+        <mat-label>Age</mat-label>
+        <input type="number" matInput formControlName="age" placeholder="10">
+        <mat-error *ngIf="age.hasError('required') || age.hasError('min')">
+        Please, enter a valid age
+        </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Profile</mat-label>
+        <mat-select [(value)]="photo">
+          <div *ngFor="let profile of profiles">
+            <mat-option value = {{profile}}>
+              {{profile}}
+            </mat-option>
+          </div>
+        </mat-select>
+    </mat-form-field>
+    <div>
+      <p *ngIf = "photo == 'I am a ...'">Profile not selected</p>
+      <img [src] = "'assets/images/' + photo" *ngIf = "photo != 'I am a ...'">
+    </div>
+    
+    <button mat-flat-button type="submit" [disabled]="form.invalid || photo == 'I am a ...'">
+        Register
+    </button>
+</form>
+<button mat-button (click)="onNoClick()">Go back</button>
+</div>

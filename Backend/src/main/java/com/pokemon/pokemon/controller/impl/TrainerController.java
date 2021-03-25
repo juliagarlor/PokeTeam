@@ -11,6 +11,7 @@ import javax.validation.*;
 import java.util.*;
 
 @RestController
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE, RequestMethod.PUT, RequestMethod.PATCH})
 public class TrainerController implements ITrainerController {
 
     @Autowired

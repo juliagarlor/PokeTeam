@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Trainer } from 'src/app/models/trainer';
 import { TrainerService } from 'src/app/services/trainer.service';
+import { RegisterComponent } from '../register/register.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-trainers',
@@ -13,7 +15,8 @@ export class TrainersComponent implements OnInit {
   showingTrainer: Trainer = new Trainer(0, 'Meowth', 4, 'talking', 'assets/images/meowth.gif');
 
   constructor(
-    private trainerService: TrainerService
+    private trainerService: TrainerService,
+    private dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +35,26 @@ export class TrainersComponent implements OnInit {
   }
 
   openDialog():void{
-    // open register component
+    const dialogRef = this.dialog.open(RegisterComponent, {
+      width: '600px'
+    });
+
+    dialogRef.afterClosed().subscribe(data => {
+      if(data != undefined){
+        this.trainerList.push(data);
+        this.showingTrainer = this.trainerList[0];
+      }
+    })
+  }
+
+  removeTrainer(trainer: Trainer, index: number): void{
+    this.trainerService.removeTrainer(trainer.id).subscribe(data => {
+      this.trainerList.splice(index, 1);
+      if(this.trainerList.length == 0){
+        this.showingTrainer = new Trainer(0, 'Meowth', 4, 'talking', 'assets/images/meowth.gif');
+      }else{
+        this.showingTrainer = this.trainerList[0];
+      }
+    })
   }
 }

@@ -6,10 +6,11 @@
         <p>Hobbies: {{showingTrainer.hobby}}</p>
     </div>
     <div class="entry">
-        <mat-card *ngFor = "let trainer of trainerList" (click) = "showTrainer(trainer)">
+        <mat-card *ngFor = "let trainer of trainerList; let i = index" (click) = "showTrainer(trainer)">
             <img mat-card-image src="{{trainer.photo}}">
             <h2>{{trainer.name}}</h2>
-        </mat-card>          
+            <button (click) = "removeTrainer(trainer, i)">x</button> 
+        </mat-card>       
     </div>
     <div class="example-button-container">
         <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click) = "openDialog()">
