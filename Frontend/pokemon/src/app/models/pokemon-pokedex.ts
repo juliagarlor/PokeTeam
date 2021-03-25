@@ -1,4 +1,4 @@
-export class Pokemon {
+export class PokemonPokedex {
     
     constructor(
         private _pokedexId: number,

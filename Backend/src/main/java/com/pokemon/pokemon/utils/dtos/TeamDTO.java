@@ -7,17 +7,17 @@ import java.util.*;
 public class TeamDTO {
     private Long id;
     private Long trainerId;
-    private List<Long> teamMates;
+    private List<PokemonDTO> teamMates;
 
 //    Constructors
 
-    public TeamDTO(Long trainerId, List<Long> teamMates) {
+    public TeamDTO(Long trainerId, List<PokemonDTO> teamMates) {
         this.trainerId = trainerId;
         this.teamMates = teamMates;
     }
 
     public TeamDTO(Team team) {
-        this(team.getTrainerId().getId(), team.getTeamMatesIds());
+        this(team.getTrainerId().getId(), team.getTeamMatesDTOs());
         setId(team.getId());
     }
 
@@ -39,11 +39,11 @@ public class TeamDTO {
         this.trainerId = trainerId;
     }
 
-    public List<Long> getTeamMates() {
+    public List<PokemonDTO> getTeamMates() {
         return teamMates;
     }
 
-    public void setTeamMates(List<Long> teamMates) {
+    public void setTeamMates(List<PokemonDTO> teamMates) {
         this.teamMates = teamMates;
     }
 }

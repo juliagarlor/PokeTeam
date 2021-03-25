@@ -1,5 +1,6 @@
 package com.pokemon.pokemon.model;
 
+import com.pokemon.pokemon.utils.dtos.*;
 import org.hibernate.annotations.*;
 
 import javax.persistence.*;
@@ -30,10 +31,10 @@ public class Team {
 
 //    Getters and Setters
 
-    public List<Long> getTeamMatesIds(){
-        List<Long> output = new ArrayList<>();
+    public List<PokemonDTO> getTeamMatesDTOs(){
+        List<PokemonDTO> output = new ArrayList<>();
         for (Pokemon mate : teamMates){
-            output.add(mate.getId());
+            output.add(new PokemonDTO(mate));
         }
         return output;
     }

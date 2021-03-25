@@ -32,6 +32,10 @@ public class TeamService implements ITeamService {
         Team searchedTeam = checkId(teamId);
         List<Pokemon> teamMates = searchedTeam.getTeamMates();
 
+        if (teamMates.size() > 5){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The max size of a team is 6 members");
+        }
+
         Pokemon newTeamMate = new Pokemon(pokedexId, searchedTeam);
         pokemonRepository.save(newTeamMate);
         teamMates.add(newTeamMate);

@@ -1,0 +1,13 @@
+<h1 mat-dialog-title>Introduce the name of your pokemon</h1>
+<div mat-dialog-content>
+  <mat-form-field>
+    <input ngModel required matInput [(ngModel)]="pokemonName" #inputName = "ngModel">
+    <mat-error *ngIf="(inputName.touched && inputName.invalid) || (inputName.touched && !pokemonFound)">
+        This pokemon has not been found
+      </mat-error>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Back</button>
+  <button mat-button (click) = "searchPokemon()" cdkFocusInitial>Search</button>
+</div>

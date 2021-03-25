@@ -11,7 +11,7 @@ export class PokedexService {
     private httpClient: HttpClient
   ) { }
 
-  getPokemonEntry(id: number): Observable<PokemonEntry>{
+  getPokemonEntry(id: number | string): Observable<PokemonEntry>{
     return this.httpClient.get<PokemonEntry>('https://pokeapi.co/api/v2/pokemon/' + id);
   }
 
@@ -31,7 +31,19 @@ interface PokemonEntry{
         front_default: string
       }
     }
+    versions: {
+      'generation-v': {
+        'black-white': {
+          'animated': {
+            front_default: string
+          }
+        }
+      }
+    }
   }
+  stats:{
+    base_stat: number
+  }[]
   types: {
     type: {name: string}
   }[]

@@ -1,1 +1,21 @@
-<p>teams works!</p>
+<div class="container">
+    <mat-form-field appearance="fill">
+        <mat-label>Select a team</mat-label>
+        <mat-select>
+          <div *ngFor="let trainer of teamList" (click) = "showTeam(trainer)">
+            <mat-option value = {{trainer}}>
+              {{trainer.name}}
+            </mat-option>
+          </div>
+        </mat-select>
+    </mat-form-field>
+
+    <div class="team" *ngIf = "selectedTeam.id != 0">
+        <mat-card *ngFor = "let pokemon of selectedTeam.teamMates; let i = index" (click) = "showPokemon(pokemon)">
+            <img mat-card-image src="{{pokemon.animation}}">
+            <h2>{{pokemon.name}}</h2>
+            <button (click) = "removePokemon(pokemon, i)">x</button> 
+        </mat-card> 
+        <button [disabled] = "selectedTeam.teamMates.length > 5" (click) = "openDialog()">Add new pokemon</button>
+    </div>
+</div>

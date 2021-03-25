@@ -17,6 +17,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
+import { NewPokemonComponent } from './components/new-pokemon/new-pokemon.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {MatDialogModule} from '@angular/material/dialog';
     TrainersComponent,
     HeaderComponent,
     HomeComponent,
-    RegisterComponent
+    RegisterComponent,
+    NewPokemonComponent
   ],
   imports: [
     BrowserModule,
