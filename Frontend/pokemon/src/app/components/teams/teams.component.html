@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container">
     <mat-form-field appearance="fill">
         <mat-label>Select a team</mat-label>
@@ -11,10 +12,18 @@
     </mat-form-field>
 
     <div class="team" *ngIf = "selectedTeam.id != 0">
-        <mat-card *ngFor = "let pokemon of selectedTeam.teamMates; let i = index" (click) = "showPokemon(pokemon)">
-            <img mat-card-image src="{{pokemon.animation}}">
+        <mat-card *ngFor = "let pokemon of selectedTeam.teamMates; let i = index" (click) = "showOrHideStats(pokemon)">
+            <img mat-card-image [src]="pokemon.animation != null ? pokemon.animation : pokemon.sprite">
             <h2>{{pokemon.name}}</h2>
-            <button (click) = "removePokemon(pokemon, i)">x</button> 
+            <button (click) = "removePokemon(pokemon, i)">x</button>
+            <div *ngIf = "pokemon.showingStats">
+              <p>Hp: {{pokemon.hp}}</p>
+              <p>Attack: {{pokemon.attack}}</p>
+              <p>Defense: {{pokemon.defense}}</p>
+              <p>Special Attack: {{pokemon.spAttack}}</p>
+              <p>Special Defense: {{pokemon.spDefense}}</p>
+              <p>Speed: {{pokemon.speed}}</p>
+            </div> 
         </mat-card> 
         <button [disabled] = "selectedTeam.teamMates.length > 5" (click) = "openDialog()">Add new pokemon</button>
     </div>

@@ -10,7 +10,7 @@ import { PokedexService } from 'src/app/services/pokedex.service';
 })
 export class NewPokemonComponent implements OnInit {
   pokemonName: string = '';
-  pokemonFound: boolean = true;
+  pokemonFound: boolean = false;
 
   constructor(
     private dialogRef: MatDialogRef<NewPokemonComponent>,
@@ -25,12 +25,15 @@ export class NewPokemonComponent implements OnInit {
   }
 
   searchPokemon():void{
-    this.pokedexService.getPokemonEntry(this.pokemonName).subscribe(data => {
-      console.log(data);
+    this.pokedexService.getPokemonEntry(this.pokemonName.toLowerCase()).subscribe(data => {
+
       let newPokemon = new PokemonTeam(0, data.id, this.pokemonName, data.sprites.versions['generation-v']['black-white'].animated.front_default,
       data.sprites.front_default, data.stats[0].base_stat, data.stats[1].base_stat, data.stats[2].base_stat, data.stats[3].base_stat,
-      data.stats[4].base_stat, data.stats[5].base_stat);
+      data.stats[4].base_stat, data.stats[5].base_stat, false);
+
       this.dialogRef.close(newPokemon);
-    }, error => {this.pokemonFound = false})
+    }, error => {
+      this.pokemonFound = true
+    })
   }
 }

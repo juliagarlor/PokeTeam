@@ -41,7 +41,8 @@ export class PokedexComponent implements OnInit {
 
   showPokemon(entry: PokemonPokedex){
     this.pokedexService.getPokemonDescription(entry.pokedexId).subscribe(data => {
-      entry.description = data.flavor_text_entries[0].flavor_text.replace('\u000c', ' ');
+      entry.description = data.flavor_text_entries[1].flavor_text.replace('\u000c', ' ');
+
       this.showingPokemon = entry;
     })
 

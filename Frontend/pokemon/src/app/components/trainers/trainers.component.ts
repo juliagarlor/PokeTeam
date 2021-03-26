@@ -12,7 +12,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class TrainersComponent implements OnInit {
   trainerList: Trainer[] = [];
   // in case backend is down:
-  showingTrainer: Trainer = new Trainer(0, 'Meowth', 4, 'talking', 'assets/images/meowth.gif');
+  showingTrainer: Trainer = new Trainer(0, 'Meowth', 4, 'talking', 'assets/images/meowth.png');
 
   constructor(
     private trainerService: TrainerService,
@@ -24,9 +24,7 @@ export class TrainersComponent implements OnInit {
       data.forEach(trainer => {
         this.trainerList.push(new Trainer(trainer.id, trainer.name, trainer.age, trainer.hobby, trainer.photo));
       });
-      if(data.length != 0){
-        this.showingTrainer = this.trainerList[0];
-      }
+      if(data.length != 0) this.showingTrainer = this.trainerList[0];
     })
   }
 
@@ -51,7 +49,7 @@ export class TrainersComponent implements OnInit {
     this.trainerService.removeTrainer(trainer.id).subscribe(data => {
       this.trainerList.splice(index, 1);
       if(this.trainerList.length == 0){
-        this.showingTrainer = new Trainer(0, 'Meowth', 4, 'talking', 'assets/images/meowth.gif');
+        this.showingTrainer = new Trainer(0, 'Meowth', 4, 'talking', 'assets/images/meowth.png');
       }else{
         this.showingTrainer = this.trainerList[0];
       }

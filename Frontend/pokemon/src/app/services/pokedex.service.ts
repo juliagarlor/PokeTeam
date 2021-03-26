@@ -52,7 +52,7 @@ interface PokemonEntry{
 
 interface PokemonSpecies{
   flavor_text_entries: {
-    '0': {
+    '1': {
       flavor_text: string
     }
   }

@@ -15,11 +15,11 @@ export class RegisterComponent implements OnInit {
   name: FormControl;
   hobbies: FormControl;
   age: FormControl;
-  profiles: string[] = ['aristocrata.JPG', 'campista.JPG', 'cazabichos.JPG', 'chica_criapokemon.JPG',
-   'chico_criapokemon.JPG', 'chica.JPG', 'joven.JPG', 'cientifica.JPG', 'cientifico.JPG', 'dominguero.JPG', 
-   'entrenador_guay.JPG', 'entrenadora_guay.JPG', 'hombre_pokefan.JPG', 'mujer_pokefan.JPG', 'marinero.JPG', 
-   'medium.JPG', 'modelo.JPG', 'montañero.JPG', 'nadador.JPG', 'nadadora.JPG', 'niña_bien.JPG', 'niño_bien.JPG', 
-   'ornitologo.JPG', 'pescador.JPG', 'pokemaniaco.JPG'];
+  profiles: string[] = ['aristocrat', 'bird_keeper', 'boy', 'girl', 'bug_catcher', 'camper', 
+   'cool_trainer(female)', 'cool_trainer(male)', 'fisherman', 'hiker', 'medium',
+   'model', 'picknicker', 'pokefan(female)', 'pokefan(male)', 'pokemon_breeder(female)', 
+   'pokemon_breeder(male)', 'pokenerd', 'rich_girl', 'rich_boy', 'sailor', 'scientist(female)', 
+   'swimmer(female)', 'swimmer(male)', 'witch'];
   photo: string = 'I am a ...';
 
   constructor(
@@ -40,7 +40,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void{
-    let newTrainer = {id: 0, name: this.name.value, age: this.age.value, hobby: this.hobbies.value, photo: 'assets/images/' + this.photo};
+    let newTrainer = {id: 0, name: this.name.value, age: this.age.value, hobby: this.hobbies.value, photo: 'assets/images/' + this.photo + '.JPG'};
     this.trainerService.newTrainer(newTrainer).subscribe(data => {
       let output = new Trainer(data.id, newTrainer.name, newTrainer.age, newTrainer.hobby, newTrainer.photo);
       this.dialogRef.close(output);

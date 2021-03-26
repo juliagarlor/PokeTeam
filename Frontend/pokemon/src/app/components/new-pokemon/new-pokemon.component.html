@@ -2,12 +2,10 @@
 <div mat-dialog-content>
   <mat-form-field>
     <input ngModel required matInput [(ngModel)]="pokemonName" #inputName = "ngModel">
-    <mat-error *ngIf="(inputName.touched && inputName.invalid) || (inputName.touched && !pokemonFound)">
-        This pokemon has not been found
-      </mat-error>
   </mat-form-field>
+  <p *ngIf = "pokemonFound">This pokemon has not been found</p>
 </div>
 <div mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Back</button>
-  <button mat-button (click) = "searchPokemon()" cdkFocusInitial>Search</button>
+  <button mat-button (click) = "searchPokemon()" cdkFocusInitial [disabled] = "inputName.invalid">Search</button>
 </div>

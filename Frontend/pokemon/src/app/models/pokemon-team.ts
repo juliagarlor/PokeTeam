@@ -10,8 +10,9 @@ export class PokemonTeam {
         private _attack: number,
         private _defense: number,
         private _spAttack: number,
-        private _spDeffense: number,
-        private _speed: number
+        private _spDefense: number,
+        private _speed: number,
+        private _showingStats: boolean
     ){}
 
     public get speed(): number {
@@ -20,11 +21,11 @@ export class PokemonTeam {
     public set speed(value: number) {
         this._speed = value;
     }
-    public get spDeffense(): number {
-        return this._spDeffense;
+    public get spDefense(): number {
+        return this._spDefense;
     }
-    public set spDeffense(value: number) {
-        this._spDeffense = value;
+    public set spDefense(value: number) {
+        this._spDefense = value;
     }
     public get spAttack(): number {
         return this._spAttack;
@@ -80,5 +81,12 @@ export class PokemonTeam {
     }
     public set pokedexId(value: number) {
         this._pokedexId = value;
+    }
+
+    public get showingStats(): boolean {
+        return this._showingStats;
+    }
+    public set showingStats(value: boolean) {
+        this._showingStats = value;
     }
 }
