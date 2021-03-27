@@ -1,0 +1,97 @@
+.container{
+    background-color: #CBD9E8;
+    display: flex;
+    direction: row;
+    margin-left: 25vw;
+    margin-right: 25vw;
+    min-width: fit-content;
+    min-height: fit-content;
+    padding: 5px;
+}
+
+.index, .page{
+    display: flex;
+    flex-direction: column;
+    font-size: 12px;
+}
+
+.index{
+    flex: 1;
+    padding-right: 10px;
+    border-right: 1px solid #3D6B9B;
+    justify-content: space-between;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.buttons button{
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+    padding: 0;
+    color: white;
+    border: 2px solid #3D6B9B;
+    background-color: #e75d6e;
+}
+
+.entry{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.entry img{
+    width: 40px;
+    height: 40px;
+}
+
+.page{
+    flex: 3;
+    padding: 20px;
+    justify-content: center;
+}
+.page img{
+    width: 250px;
+    height: 250px;
+    align-self: center;
+}
+.physical{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+}
+
+.type{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    font-size: 12px;
+}
+
+.type button{
+    width: 60px;
+    border-radius: 5px;
+    color: white;
+    border: 2px solid #3D6B9B;
+}
+
+/* types and colors */
+.normal{background-color: rgb(142, 150, 132);}
+.fire{background-color: orange;}
+.water{background-color: rgb(67, 171, 255);}
+.grass{background-color: rgb(28, 209, 58);}
+.electric{background-color: rgb(255, 230, 0);}
+.ice{background-color: rgb(182, 255, 249);}
+.fighting{background-color: brown;}
+.poison{background-color: purple;}
+.ground{background-color: rgb(218, 164, 95);}
+.flying{background-color: rgb(178, 178, 248);}
+.psychic{background-color: rgb(255, 74, 104);}
+.bug{background-color: rgb(142, 189, 48);}
+.rock{background-color: rgb(175, 133, 79);}
+.ghost{background-color: slateblue;}
+.dark{background-color: rgb(83, 83, 83);}
+.dragon{background-color: mediumblue;}
+.steel{background-color: rgb(194, 194, 194);}
+.fairy{background-color: pink;}

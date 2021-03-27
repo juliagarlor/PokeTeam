@@ -5,16 +5,27 @@
            <img src={{entry.sprite}}> 
            <p>{{entry.name}}</p>
         </div>
-        <button [disabled] = "entryList[0].pokedexId == 1" (click) = "getTenEntries(entryList[0].pokedexId - 11)">previous</button>
-        <button [disabled] = "entryList[entryList.length - 1].pokedexId == 802" (click) = "getTenEntries(entryList[entryList.length - 1].pokedexId + 1)">next</button>
+        <div class="buttons">
+            <button [disabled] = "entryList[0].pokedexId == 1" (click) = "getTenEntries(entryList[0].pokedexId - 11)">&lt;</button>
+            <button [disabled] = "entryList[entryList.length - 1].pokedexId == 802" (click) = "getTenEntries(entryList[entryList.length - 1].pokedexId + 1)">&gt;</button>
+        </div>
+        
     </div>
 
     <div class="page">
         <img src={{showingPokemon.artwork}}>
-        <h1>{{showingPokemon.pokedexId}} {{showingPokemon.name}}</h1>
-        <p>Weight: {{showingPokemon.weight}} kg Height: {{showingPokemon.height}} m</p>
-        <p>Type:</p>
-        <p *ngFor = "let type of showingPokemon.types">{{type}}</p>
+        <h1>{{showingPokemon.pokedexId}}. {{showingPokemon.name}}</h1>
+        <div class="physical">
+            <h4>Weight:</h4>
+            <p>{{showingPokemon.weight}} kg</p>
+            <h4>Height:</h4>
+            <p>{{showingPokemon.height}} m</p>
+        </div>
+        <div class="type">
+            <h4>Type:</h4>
+            <button *ngFor = "let type of showingPokemon.types" class="{{type}}">{{type}}</button>
+        </div>
+        <h4>Description:</h4>
         <p>{{showingPokemon.description}}</p>
     </div>
 </div>

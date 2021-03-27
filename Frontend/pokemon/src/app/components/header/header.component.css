@@ -1,0 +1,30 @@
+.container{
+    display: flex;
+    justify-content: center;
+    direction: row;
+    padding: 10px;
+    background-color: #cbd9e8c5;
+    margin-bottom: 10px;
+}
+
+button{
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    border: 2px solid #3D6B9B;
+    color: white;
+    margin: 10px;
+    font-size: 8px;
+}
+
+.pokedex{
+    background-color: #e75d6e;
+  }
+  
+  .teams{
+    background-color: #fddab4;
+  }
+  
+  .trainers{
+    background-color: #fb9f95;
+  }

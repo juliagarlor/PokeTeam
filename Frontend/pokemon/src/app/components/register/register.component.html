@@ -34,7 +34,7 @@
     </mat-form-field>
     <div>
       <p *ngIf = "photo == 'I am a ...'">Profile not selected</p>
-      <img [src] = "'assets/images/' + photo" *ngIf = "photo != 'I am a ...'">
+      <img [src] = "'assets/images/' + photo + '.JPG'" *ngIf = "photo != 'I am a ...'">
     </div>
     
     <button mat-flat-button type="submit" [disabled]="form.invalid || photo == 'I am a ...'">

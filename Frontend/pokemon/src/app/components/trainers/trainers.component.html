@@ -1,17 +1,21 @@
 <app-header></app-header>
 <div class="container">
     <div class="page">
-        <img src="{{showingTrainer.photo}}">
+        <div class="currentProfile">
+            <img src="{{showingTrainer.photo}}">
+        </div>
         <h1>{{showingTrainer.name}}</h1>
         <p>Age: {{showingTrainer.age}}</p>
         <p>Hobbies: {{showingTrainer.hobby}}</p>
     </div>
     <div class="entry">
-        <mat-card *ngFor = "let trainer of trainerList; let i = index" (click) = "showTrainer(trainer)">
-            <img mat-card-image src="{{trainer.photo}}">
+        <div class="card" *ngFor = "let trainer of trainerList; let i = index" (click) = "showTrainer(trainer)">
+            <div class="cardImage">
+                <button (click) = "removeTrainer(trainer, i)">x</button>
+                <img src="{{trainer.photo}}">
+            </div>
             <h2>{{trainer.name}}</h2>
-            <button (click) = "removeTrainer(trainer, i)">x</button> 
-        </mat-card>       
+        </div>       
     </div>
     <div class="example-button-container">
         <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click) = "openDialog()">
