@@ -1,11 +1,12 @@
 .container{
     background-color: #CBD9E8;
     display: flex;
-    direction: row;
-    margin-left: 25vw;
-    margin-right: 25vw;
-    min-width: fit-content;
-    min-height: fit-content;
+    flex-direction: row;
+    width: 55vw;
+    min-width: 320px;
+    height: 80%;
+    min-height: 480px;
+    margin: auto;
     padding: 5px;
 }
 
@@ -52,8 +53,8 @@
     justify-content: center;
 }
 .page img{
-    width: 250px;
-    height: 250px;
+    height: 30vw;
+    min-height: 120px;
     align-self: center;
 }
 .physical{

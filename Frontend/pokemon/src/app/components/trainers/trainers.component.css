@@ -1,9 +1,12 @@
 .container{
     display: flex;
-    justify-items: center;
+    justify-content: center;
     flex-direction: column;
     margin-left: 10vw;
     margin-right: 10vw;
+    margin-bottom: 20px;
+    font-size: 10px;
+    min-width: 320px;
 }
 
 .page{
@@ -20,10 +23,12 @@
     grid-column-end: 2;
     grid-row-start: 1;
     grid-row-end: 4;
-    width: 25vw;
-    height: 25vw;
-    border-radius: 25vw;
-    margin-right: 10px;
+    width: 15vw;
+    min-width: 130px;
+    height: 15vw;
+    min-height: 130px;
+    border-radius: 15vw;
+    margin: 10px;
     overflow: hidden;
     justify-self: center;
 }
@@ -59,6 +64,8 @@
 .cardImage{
     width: 20vw;
     height: 20vw;
+    min-width: 80px;
+    min-height: 80px;
     overflow: hidden;
 }
 
@@ -78,4 +85,19 @@
     border: 2px solid #3D6B9B;
     background-color: #e75d6e;
     padding: 0;
+}
+
+.addingButton button{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    border: 5px solid #3D6B9B;
+    border-radius: 5vw;
+    background-color: #fb9f95;
+    color: white;
+    width: 5vw;
+    height: 5vw;
+    min-width: 33px;
+    min-height: 33px;
+    font-size: 10px;
 }

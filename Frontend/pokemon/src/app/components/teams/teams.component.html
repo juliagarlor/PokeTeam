@@ -1,30 +1,30 @@
 <app-header></app-header>
 <div class="container">
-    <mat-form-field appearance="fill">
-        <mat-label>Select a team</mat-label>
-        <mat-select>
-          <div *ngFor="let trainer of teamList" (click) = "showTeam(trainer)">
-            <mat-option value = {{trainer}}>
-              {{trainer.name}}
-            </mat-option>
-          </div>
-        </mat-select>
-    </mat-form-field>
+    <h2>Select a team</h2>
+    <select>
+        <option *ngFor="let trainer of teamList" value = {{trainer}} (click) = "showTeam(trainer)">
+          {{trainer.name}}
+        </option>
+    </select>
 
     <div class="team" *ngIf = "selectedTeam.id != 0">
-        <mat-card *ngFor = "let pokemon of selectedTeam.teamMates; let i = index" (click) = "showOrHideStats(pokemon)">
-            <img mat-card-image [src]="pokemon.animation != null ? pokemon.animation : pokemon.sprite">
-            <h2>{{pokemon.name}}</h2>
+        <div class="pokemon p{{i}}" *ngFor = "let pokemon of selectedTeam.teamMates; let i = index" (click) = "showOrHideStats(pokemon)">
+          <div class="img">
+            <img [src]="pokemon.animation != null ? pokemon.animation : pokemon.sprite">
+          </div>
+            
+          <div class="details" *ngIf = "pokemon.showingStats">
+            <h2>{{pokemon.name}}  </h2>
             <button (click) = "removePokemon(pokemon, i)">x</button>
-            <div *ngIf = "pokemon.showingStats">
-              <p>Hp: {{pokemon.hp}}</p>
-              <p>Attack: {{pokemon.attack}}</p>
-              <p>Defense: {{pokemon.defense}}</p>
-              <p>Special Attack: {{pokemon.spAttack}}</p>
-              <p>Special Defense: {{pokemon.spDefense}}</p>
-              <p>Speed: {{pokemon.speed}}</p>
-            </div> 
-        </mat-card> 
-        <button [disabled] = "selectedTeam.teamMates.length > 5" (click) = "openDialog()">Add new pokemon</button>
+            <p>Hp: {{pokemon.hp}}</p>
+            <p>Attack: {{pokemon.attack}}</p>
+            <p>Defense: {{pokemon.defense}}</p>
+            <p>Special Attack: {{pokemon.spAttack}}</p>
+            <p>Special Defense: {{pokemon.spDefense}}</p>
+            <p>Speed: {{pokemon.speed}}</p>
+          
+          </div> 
+        </div> 
+        <button [disabled] = "selectedTeam.teamMates.length > 5" (click) = "openDialog()"></button>
     </div>
 </div>

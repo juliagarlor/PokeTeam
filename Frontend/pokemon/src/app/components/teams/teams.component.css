@@ -1,0 +1,121 @@
+.container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 20px;
+    font-size: 10px;
+}
+
+select{
+    border: none;
+    background-color: #cbd9e8c5;
+    width: 50%;
+    margin: auto;
+}
+
+h2{
+    text-align: center;
+}
+
+.team{
+    display: inline-grid;
+    grid-template-columns: repeat(5, 8vw);
+    grid-template-rows: repeat(3, 8vw);
+    grid-template-areas: 
+    '. p0 . p1 .'
+    'p2 . button . p3'
+    '. p4 . p5 . ';
+    grid-column-gap: 2vw;
+    grid-row-gap: 4vw;
+    justify-items: center;
+    align-items: center;
+    margin: 10px auto;
+    padding: 10px;
+    position: relative
+}
+
+.team button{
+    grid-area: button;
+    background-image: url("../../../assets/images/pokeball.png");
+    background-size: 10vw;
+    width: 10vw;
+    height: 10vw;
+    border-radius: 10vw;
+}
+
+.pokemon{
+    padding: 10px;
+}
+
+.img{
+    width: 10vw;
+    height: 10vw;
+    max-width: 130px;
+    max-height: 130px;
+    border-radius: 130px;
+    border: 2px solid #3D6B9B;
+    background-color: #cbd9e8c5;
+    display: inline-grid;
+    justify-content: center;
+    align-content: center;
+}
+
+.img img{
+    width: 90%;
+    height: 90%;
+    object-fit: contain;
+    justify-self: center;
+    align-self: center;
+}
+
+.pokemon button{
+    background: unset;
+    background-color: tomato;
+    width: 20px;
+    height: 20px;
+    border-radius: 20px;
+}
+
+.p0{
+    grid-area: p0;
+}
+
+.p1{
+    grid-area: p1;
+}
+
+.p2{
+    grid-area: p2;
+}
+
+.p3{
+    grid-area: p3;
+}
+
+.p4{
+    grid-area: p4;
+}
+
+.p5{
+    grid-area: p5;
+}
+
+.details{
+    position: absolute;
+    font-size: 12px;
+    background-color: #CBD9E8;
+    padding: 10px;
+    margin-top: 10px;
+    width: 115px;
+}
+
+.details h2{
+    display: inline;
+}
+
+.details button{
+    padding: 0;
+    color: white;
+}
