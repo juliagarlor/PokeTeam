@@ -10,7 +10,7 @@
 
 select{
     border: none;
-    background-color: #cbd9e8c5;
+    background-color: #CBD9E8;
     width: 50%;
     margin: auto;
 }
@@ -38,10 +38,10 @@ h2{
 
 .team button{
     grid-area: button;
-    background-image: url("../../../assets/images/pokeball.png");
+    background-image: url("../../../assets/images/pokeball2.png");
     background-size: 10vw;
-    width: 10vw;
-    height: 10vw;
+    width: 10.2vw;
+    height: 10.2vw;
     border-radius: 10vw;
 }
 
@@ -109,6 +109,7 @@ h2{
     padding: 10px;
     margin-top: 10px;
     width: 115px;
+    box-shadow: 5px 5px 5px 0 grey;
 }
 
 .details h2{

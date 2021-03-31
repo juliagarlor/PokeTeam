@@ -1,9 +1,19 @@
+.homeHeader{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.homeHeader img{
+  width: 200px;
+}
+
 .container{
     display: inline-grid;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
     position: absolute;
-    top: 0;
+    top: 30px;
     bottom: 0;
     right: 0;
     left: 0;

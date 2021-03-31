@@ -1,11 +1,14 @@
-<h1 mat-dialog-title>Introduce the name of your pokemon</h1>
-<div mat-dialog-content>
-  <mat-form-field>
-    <input ngModel required matInput [(ngModel)]="pokemonName" #inputName = "ngModel">
-  </mat-form-field>
-  <p *ngIf = "pokemonFound">This pokemon has not been found</p>
+<div class="container">
+  <h2>Introduce the name of your pokemon</h2>
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input ngModel required matInput [(ngModel)]="pokemonName" #inputName = "ngModel">
+      <p *ngIf = "pokemonFound">This pokemon has not been found</p>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions class="buttons" >
+    <button mat-button (click)="onNoClick()">Back</button>
+    <button mat-button cdkFocusInitial (click) = "searchPokemon()" [disabled] = "inputName.invalid">Search</button>
+  </div>
 </div>
-<div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Back</button>
-  <button mat-button (click) = "searchPokemon()" cdkFocusInitial [disabled] = "inputName.invalid">Search</button>
-</div>
+

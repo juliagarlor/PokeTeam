@@ -59,7 +59,7 @@ export class TeamsComponent implements OnInit {
 
   openDialog(){
     const dialogRef = this.dialog.open(NewPokemonComponent, {
-      width: '600px'
+      width: '300px'
     });
 
     dialogRef.afterClosed().subscribe(data => {

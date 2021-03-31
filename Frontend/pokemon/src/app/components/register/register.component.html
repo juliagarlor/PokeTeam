@@ -1,5 +1,5 @@
-<div mat-dialog-content>
-  <form class="example-form" (ngSubmit)="onSubmit()" [formGroup]="form" #formDirective = "ngForm">
+<div mat-dialog-content class="container">
+  <form class="form" (ngSubmit)="onSubmit()" [formGroup]="form" #formDirective = "ngForm">
 
     <mat-form-field class="input">
         <mat-label>Name</mat-label>
@@ -22,7 +22,8 @@
         </mat-error>
     </mat-form-field>
 
-    <mat-form-field appearance="fill">
+    <div class="profile">
+      <mat-form-field appearance="fill">
         <mat-label>Profile</mat-label>
         <mat-select [(value)]="photo">
           <div *ngFor="let profile of profiles">
@@ -31,10 +32,11 @@
             </mat-option>
           </div>
         </mat-select>
-    </mat-form-field>
-    <div>
-      <p *ngIf = "photo == 'I am a ...'">Profile not selected</p>
-      <img [src] = "'assets/images/' + photo + '.JPG'" *ngIf = "photo != 'I am a ...'">
+      </mat-form-field>
+      <div class="image">
+        <p *ngIf = "photo == 'I am a ...'">Profile not selected</p>
+        <img [src] = "'assets/images/' + photo + '.JPG'" *ngIf = "photo != 'I am a ...'">
+      </div>
     </div>
     
     <button mat-flat-button type="submit" [disabled]="form.invalid || photo == 'I am a ...'">
