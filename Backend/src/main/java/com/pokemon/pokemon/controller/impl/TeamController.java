@@ -22,7 +22,7 @@ public class TeamController implements ITeamController {
     }
 
 //    Add a new team mate
-    @PutMapping("cd ba")
+    @PutMapping("/new/team-mate/{teamId}")
     @ResponseStatus(HttpStatus.OK)
     public TeamDTO addTeamMate(@PathVariable Long teamId, @RequestBody Long pokedexId){
         return teamService.addTeamMate(teamId, pokedexId);
