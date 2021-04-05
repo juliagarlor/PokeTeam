@@ -1,5 +1,5 @@
 .container{
-    background-color: #CBD9E8;
+    background-color: #6D23B6;
     display: flex;
     flex-direction: row;
     width: 55vw;
@@ -32,9 +32,8 @@
     height: 20px;
     border-radius: 20px;
     padding: 0;
-    color: white;
-    border: 2px solid #3D6B9B;
-    background-color: #e75d6e;
+    border: 2px solid rgb(61, 107, 155);
+    background-color: #EA698B;
 }
 
 .entry{
@@ -73,7 +72,6 @@
 .type button{
     width: 60px;
     border-radius: 5px;
-    color: white;
     border: 2px solid #3D6B9B;
 }
 

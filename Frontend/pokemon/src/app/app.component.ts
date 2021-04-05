@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'pokemon';
+  dark: boolean = false;
+
+  isClicked(): void{
+    this.dark = !this.dark;
+  }
 }

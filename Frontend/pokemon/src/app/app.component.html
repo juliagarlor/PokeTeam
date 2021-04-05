@@ -1,1 +1,4 @@
-<router-outlet></router-outlet>
+<div [ngClass] = "{'background' : true, 'dark' : dark, 'light' : !dark}">
+    <router-outlet></router-outlet>
+    <mat-slide-toggle class="check" [(ngModel)] = "dark"></mat-slide-toggle>
+</div>

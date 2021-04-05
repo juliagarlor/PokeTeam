@@ -14,6 +14,7 @@ import { NewPokemonComponent } from '../new-pokemon/new-pokemon.component';
 })
 export class TeamsComponent implements OnInit {
   teamList: {id: number, name: string}[] = [];
+  selectedTrainer: {id: number, name: string} =  {id: 0, name: 'Select a trainer'}
   selectedTeam: Team = new Team(0, 0, [new PokemonTeam(0, 52, 'meowth', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/52.gif',
   'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/52.png', 40, 45, 35, 40, 40, 90, false)]);
 
@@ -31,9 +32,8 @@ export class TeamsComponent implements OnInit {
     })
   }
 
-  showTeam(trainer: {id: number, name: string}): void{
-
-    this.teamService.getTeamByTrainerId(trainer.id).subscribe(incomingTeam => {
+  showTeam(): void{
+    this.teamService.getTeamByTrainerId(this.selectedTrainer.id).subscribe(incomingTeam => {
       
       this.selectedTeam = new Team(incomingTeam.id, incomingTeam.trainerId, []);
       incomingTeam.teamMates.forEach(teamMate => {
@@ -69,5 +69,9 @@ export class TeamsComponent implements OnInit {
         })
       }
     })
+  }
+
+  clicked(){
+    console.log('click working')
   }
 }

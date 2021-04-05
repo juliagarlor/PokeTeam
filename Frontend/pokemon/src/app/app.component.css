@@ -1,0 +1,24 @@
+.background{
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    position: relative
+}
+
+.light{
+    background-image: url("../assets/images/day.jpg");
+    background-color: #600057;
+}
+
+.dark{
+    background-image: url("../assets/images/night.jpg");
+    background-color: #8d00a4;
+}
+
+.check{
+    transform: rotate(90deg);
+    position: absolute;
+    bottom: 50px;
+    left: 10px;
+}

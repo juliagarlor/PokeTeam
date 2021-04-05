@@ -2,13 +2,8 @@
     font-size: 10px;
     display: flex;
     flex-direction: column;
-    background-color: #fddab4;
+    background-color: #C05299;
     padding: 10px;
-    color: white;
-}
-
-p{
-    color: red;
 }
 
 .buttons{

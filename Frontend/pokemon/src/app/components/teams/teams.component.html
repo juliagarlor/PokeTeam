@@ -1,8 +1,8 @@
 <app-header></app-header>
 <div class="container">
     <h2>Select a team</h2>
-    <select>
-        <option *ngFor="let trainer of teamList" value = {{trainer}} (click) = "showTeam(trainer)">
+    <select [(ngModel)] = "selectedTrainer" (change) = "showTeam()">
+        <option *ngFor="let trainer of teamList" [ngValue] = "trainer">
           {{trainer.name}}
         </option>
     </select>
