@@ -115,3 +115,46 @@ ng serve
 ```
 
 When it stops, you will find the website up and ready in http://localhost:4200. So that's it, play and explore and have fun!
+
+
+## Back-end routes
+
+| HTTP verb | Route | Description |
+| --- | --- | --- | --- | --- |
+| GET | /trainer/list | Return a list of trainer names and ids |
+| GET | /trainers/details | Return a list with all trainers |
+| POST | /new/trainer | Register a new trainer and creates its team |
+| DELETE | /remove/trainer/{id} | Delete the register of a trainer, its team and pokemons |
+| GET | /team/{trainerId} | Return a team |
+| PUT | /new/team-mate/{teamId} | Add an new pokemon to a team |
+| PUT | /remove/team-mate/{teamId} | Remove a pokemon from its team |
+
+**Do not forget to add "localhost:8080" before each route.**
+
+## Front-end routes and views
+
+HOME: http://localhost:4200 and https://poketeam-frontend.herokuapp.com/
+
+![Home-day](screenshots/home-day.JPG)
+
+![Home-night](screenshots/home-night.JPG)
+
+POKEDEX: http://localhost:4200/pokedex and https://poketeam-frontend.herokuapp.com/pokedex
+
+![Pokedex](screenshots/pokedex.JPG)
+
+TEAMS: http://localhost:4200/teams and https://poketeam-frontend.herokuapp.com/teams
+
+![Teams](screenshots/teams.JPG)
+
+TRAINERS: http://localhost:4200/trainers and https://poketeam-frontend.herokuapp.com/trainers
+
+![Trainers](screenshots/trainers.JPG)
+
+## Thanks ❤
+
+Special thanks to the development team of PokéAPI, they do such a great job. May you have more ideas for projects inspired in Pokemon, please, visit their page: https://pokeapi.co/. There is everything you may need, I would be all the day exploring pokeapi.
+
+Regarding to PokeTeam, any feedback for improvement is welcome, and I hope you have fun using it.
+
+Developed with ❤ by Julia García
