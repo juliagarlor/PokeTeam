@@ -8,12 +8,10 @@
 
 .light{
     background-image: url("../assets/images/day.jpg");
-    background-color: #600057;
 }
 
 .dark{
     background-image: url("../assets/images/night.jpg");
-    background-color: #8d00a4;
 }
 
 .check{
