@@ -15,6 +15,7 @@ public class Team {
     @OneToOne
     @JoinColumn(name = "trainer_id")
     private Trainer trainerId;
+    @LazyCollection(LazyCollectionOption.FALSE)
     @OneToMany(mappedBy = "team")
     private List<Pokemon> teamMates;
 

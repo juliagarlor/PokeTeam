@@ -4,7 +4,7 @@ import com.pokemon.pokemon.utils.dtos.*;
 import org.springframework.web.bind.annotation.*;
 
 public interface ITeamController {
-    TeamDTO getTeam(Long trainerId);
-    TeamDTO addTeamMate(Long teamId, Long pokedexId);
-    TeamDTO removeTeamMate(Long teamId, Long pokemonId);
+    TeamDTO getTeam(String trainerId);
+    TeamDTO addTeamMate(String teamId, String pokedexId);
+    TeamDTO removeTeamMate(String teamId, String pokemonId);
 }

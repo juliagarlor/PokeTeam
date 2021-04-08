@@ -18,8 +18,9 @@ public class TeamService implements ITeamService {
     @Autowired
     private PokemonRepository pokemonRepository;
 
-    public TeamDTO getTeam(Long trainerId) {
-        Optional<Team> team = teamRepository.findByTrainerIdId(trainerId);
+    public TeamDTO getTeam(String trainerId) {
+        Long numTrainerId = checkNumeric(trainerId);
+        Optional<Team> team = teamRepository.findByTrainerIdId(numTrainerId);
         if (team.isPresent()){
             return new TeamDTO(team.get());
         }else {
@@ -28,15 +29,17 @@ public class TeamService implements ITeamService {
         }
     }
 
-    public TeamDTO addTeamMate(Long teamId, Long pokedexId) {
-        Team searchedTeam = checkId(teamId);
+    public TeamDTO addTeamMate(String teamId, String pokedexId) {
+        Long numTeamId = checkNumeric(teamId);
+        Long numPokedexId = checkNumeric(pokedexId);
+        Team searchedTeam = checkId(numTeamId);
         List<Pokemon> teamMates = searchedTeam.getTeamMates();
 
         if (teamMates.size() > 5){
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "The max size of a team is 6 members");
         }
 
-        Pokemon newTeamMate = new Pokemon(pokedexId, searchedTeam);
+        Pokemon newTeamMate = new Pokemon(numPokedexId, searchedTeam);
         pokemonRepository.save(newTeamMate);
         teamMates.add(newTeamMate);
         searchedTeam.setTeamMates(teamMates);
@@ -44,12 +47,15 @@ public class TeamService implements ITeamService {
         return new TeamDTO(teamRepository.save(searchedTeam));
     }
 
-    public TeamDTO removeTeamMate(Long teamId, Long pokemonId) {
-        Team searchedTeam = checkId(teamId);
+    public TeamDTO removeTeamMate(String teamId, String pokemonId) {
+        Long numTeamId = checkNumeric(teamId);
+        Long numPokemonId = checkNumeric(pokemonId);
+
+        Team searchedTeam = checkId(numTeamId);
         List<Pokemon> teamMates = searchedTeam.getTeamMates();
 
-        Optional<Pokemon> searchedPokemon = pokemonRepository.findById(pokemonId);
-        if (searchedPokemon.isPresent() && searchedPokemon.get().getTeam().getId().equals(teamId)){
+        Optional<Pokemon> searchedPokemon = pokemonRepository.findById(numPokemonId);
+        if (searchedPokemon.isPresent() && searchedPokemon.get().getTeam().getId().equals(numTeamId)){
             teamMates.remove(searchedPokemon.get());
             searchedTeam.setTeamMates(teamMates);
             pokemonRepository.delete(searchedPokemon.get());
@@ -57,6 +63,14 @@ public class TeamService implements ITeamService {
         }else {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "The pokemon with id " + pokemonId + "does not exist" +
                     " or is not part of this team");
+        }
+    }
+
+    public Long checkNumeric(String id){
+        try{
+            return Long.parseLong(id);
+        }catch (NumberFormatException e){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "IDs must be numeric values");
         }
     }
 
