@@ -2,13 +2,19 @@
   <h2>Introduce the name of your pokemon</h2>
   <div mat-dialog-content>
     <mat-form-field>
-      <input ngModel required matInput [(ngModel)]="pokemonName" #inputName = "ngModel">
-      <p *ngIf = "pokemonFound">This pokemon has not been found</p>
+      <input required matInput [(ngModel)]="pokemonName" [formControl]="input"
+      [matAutocomplete]="auto" (keyup) = "checkKey($event)">
+      <p *ngIf = "pokemonNotFound">This pokemon has not been found</p>
     </mat-form-field>
+    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+      <mat-option *ngFor="let option of incomingNames | async" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
   </div>
   <div mat-dialog-actions class="buttons" >
     <button mat-button (click)="onNoClick()">Back</button>
-    <button mat-button cdkFocusInitial (click) = "searchPokemon()" [disabled] = "inputName.invalid">Search</button>
+    <button mat-button cdkFocusInitial (click) = "searchPokemon()" [disabled] = "input.invalid">Search</button>
   </div>
 </div>
 

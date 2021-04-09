@@ -18,6 +18,10 @@ export class PokedexService {
   getPokemonDescription(id: number): Observable<PokemonSpecies>{
     return this.httpClient.get<PokemonSpecies>('https://pokeapi.co/api/v2/pokemon-species/' + id + '/');
   }
+
+  getAllNames(): Observable<pokemonName>{
+    return this.httpClient.get<pokemonName>('https://pokeapi.co/api/v2/pokemon?limit=898');
+  }
 }
 
 interface PokemonEntry{
@@ -56,4 +60,10 @@ interface PokemonSpecies{
       flavor_text: string
     }
   }
+}
+
+interface pokemonName{
+  results: {
+    name: string
+  }[]
 }

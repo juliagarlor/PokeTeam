@@ -20,6 +20,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { NewPokemonComponent } from './components/new-pokemon/new-pokemon.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { GuessComponent } from './components/guess/guess.component';
+import {MatAutocompleteModule} from '@angular/material/autocomplete'; 
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { GuessComponent } from './components/guess/guess.component';
     MatInputModule,
     MatSelectModule,
     MatDialogModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatAutocompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

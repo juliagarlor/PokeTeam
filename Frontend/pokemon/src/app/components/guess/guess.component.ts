@@ -34,6 +34,12 @@ export class GuessComponent implements OnInit {
     }
   }
 
+  checkKey(event: KeyboardEvent){
+    if(event.key == 'Enter'){
+      this.discover();
+    }
+  }
+
   newGuess():void{
     this.guess = '';
     this.result = '';

@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 import { PokemonTeam } from 'src/app/models/pokemon-team';
 import { PokedexService } from 'src/app/services/pokedex.service';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
   selector: 'app-new-pokemon',
@@ -10,7 +13,11 @@ import { PokedexService } from 'src/app/services/pokedex.service';
 })
 export class NewPokemonComponent implements OnInit {
   pokemonName: string = '';
-  pokemonFound: boolean = false;
+  pokemonNotFound: boolean = false;
+
+  incomingNames: Observable<string[]> | undefined;
+  content: string[] = [];
+  input = new FormControl();
 
   constructor(
     private dialogRef: MatDialogRef<NewPokemonComponent>,
@@ -18,6 +25,21 @@ export class NewPokemonComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.pokedexService.getAllNames().subscribe(data => {
+      data.results.forEach(pokemon => {
+        this.content.push(pokemon.name);
+      })
+    });
+
+    this.incomingNames = this.input.valueChanges.pipe(
+        startWith(''), map(value => this.trim(value))
+      );
+  }
+
+  private trim(value: string): string[] {
+    const begining = value.toLowerCase();
+
+    return this.content.filter(option => option.toLowerCase().includes(begining));
   }
 
   onNoClick(): void{
@@ -33,7 +55,13 @@ export class NewPokemonComponent implements OnInit {
 
       this.dialogRef.close(newPokemon);
     }, error => {
-      this.pokemonFound = true
+      this.pokemonNotFound = true
     })
+  }
+
+  checkKey(event: KeyboardEvent): void{
+    if(event.key == 'Enter'){
+      this.searchPokemon();
+    }
   }
 }

@@ -7,10 +7,9 @@
     <div class="result">
         <p *ngIf = "result.length > 0">{{result}}</p>
     </div>
-    <input type="text" placeholder="Place your answer here" [(ngModel)] = "guess">
+    <input type="text" placeholder="Place your answer here" [(ngModel)] = "guess" (keyup) = "checkKey($event)">
     <div>
         <button (click) = "discover()">Guess!</button>  
         <button (click) = "newGuess()" [disabled] = "contrast == 0">Another round!</button>
     </div>
 </div>
-
