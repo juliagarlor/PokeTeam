@@ -1,0 +1,16 @@
+<app-header></app-header>
+<div class="container">
+    <h1>Who's this pokemon?</h1> 
+    <div class="image">
+        <img src={{unknownPokemon.artwork}} [ngStyle] = "{'filter' : 'contrast(' + contrast + '%)'}">
+    </div> 
+    <div class="result">
+        <p *ngIf = "result.length > 0">{{result}}</p>
+    </div>
+    <input type="text" placeholder="Place your answer here" [(ngModel)] = "guess">
+    <div>
+        <button (click) = "discover()">Guess!</button>  
+        <button (click) = "newGuess()" [disabled] = "contrast == 0">Another round!</button>
+    </div>
+</div>
+

@@ -5,7 +5,8 @@
     padding: 10px;
     background-color: #6d23b6b6;
     margin-bottom: 10px;
-    min-width: 390px;
+    min-width: 510px;
+    position: relative;
 }
 
 button{
@@ -17,14 +18,20 @@ button{
     font-size: 8px;
 }
 
+.link{
+  position: absolute;
+  right: 10px;
+  align-self: center;
+}
+
 .pokedex{
-    background-color: #EA698B;
-  }
+  background-color: #EA698B;
+}
   
-  .teams{
-    background-color: #D55D92;
-  }
-  
-  .trainers{
-    background-color: #C05299;
-  }
+.teams{
+  background-color: #D55D92;
+}
+
+.trainers{
+  background-color: #C05299;
+}

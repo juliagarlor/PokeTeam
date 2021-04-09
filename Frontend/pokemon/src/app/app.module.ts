@@ -19,6 +19,7 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import { NewPokemonComponent } from './components/new-pokemon/new-pokemon.component';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { GuessComponent } from './components/guess/guess.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     HeaderComponent,
     HomeComponent,
     RegisterComponent,
-    NewPokemonComponent
+    NewPokemonComponent,
+    GuessComponent
   ],
   imports: [
     BrowserModule,

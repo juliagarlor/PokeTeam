@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { GuessComponent } from './components/guess/guess.component';
 import { HomeComponent } from './components/home/home.component';
 import { PokedexComponent } from './components/pokedex/pokedex.component';
 import { TeamsComponent } from './components/teams/teams.component';
@@ -22,6 +23,10 @@ const routes: Routes = [
     path: 'teams',
     component: TeamsComponent
   },
+  {
+    path: 'guess',
+    component: GuessComponent
+  }
 ];
 
 @NgModule({
