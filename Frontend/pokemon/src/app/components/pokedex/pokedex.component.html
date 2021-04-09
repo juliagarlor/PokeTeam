@@ -1,14 +1,14 @@
 <app-header></app-header>
 <div class="container">
     <div class="index">
+        <button [disabled] = "entryList[0].pokedexId == 1" (click) = "getTenEntries(entryList[0].pokedexId - 11)">&#708;</button>
         <div class="entry" *ngFor = "let entry of entryList" (click) = "showPokemon(entry)">
            <img src={{entry.sprite}}> 
            <p>{{entry.name}}</p>
         </div>
-        <div class="buttons">
-            <button [disabled] = "entryList[0].pokedexId == 1" (click) = "getTenEntries(entryList[0].pokedexId - 11)">&lt;</button>
-            <button [disabled] = "entryList[entryList.length - 1].pokedexId == 802" (click) = "getTenEntries(entryList[entryList.length - 1].pokedexId + 1)">&gt;</button>
-        </div>
+        <!-- <div class="buttons"> -->
+            <button [disabled] = "entryList[entryList.length - 1].pokedexId == 802" (click) = "getTenEntries(entryList[entryList.length - 1].pokedexId + 1)">&#709;</button>
+        <!-- </div> -->
         
     </div>
 
@@ -27,5 +27,10 @@
         </div>
         <h4>Description:</h4>
         <p>{{showingPokemon.description}}</p>
+    </div>
+    <div class="addingButton">
+        <button (click) = "openDialog()">
+            Search
+        </button>
     </div>
 </div>
