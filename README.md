@@ -120,7 +120,7 @@ When it stops, you will find the website up and ready in http://localhost:4200. 
 ## Back-end routes
 
 | HTTP verb | Route | Description |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- |
 | GET | /trainer/list | Return a list of trainer names and ids |
 | GET | /trainers/details | Return a list with all trainers |
 | POST | /new/trainer | Register a new trainer and creates its team |
